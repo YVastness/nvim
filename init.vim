@@ -47,8 +47,8 @@ syntax on
 set hidden
 " ===================== Start of Keybindings Settings =====================
 " 定义快捷键到行首和行尾
-nmap <C-a> ^
-nmap <C-e> $
+" nmap <C-a> ^
+" nmap <C-e> $
 inoremap jj <ESC>
 " 设置快捷键将选中文本块复制至系统剪贴板
 nmap <Leader>y "+y
@@ -86,14 +86,21 @@ Plug 'preservim/nerdcommenter'
 Plug 'mbbill/undotree'
 Plug 'voldikss/vim-floaterm'
 Plug 'fadein/vim-FIGlet'
-Plug 'mg980/vim-visual-multi', {'branch': 'master'}
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
 Plug 'puremourning/vimspector'
 "Plug 'codota/tabnine-vim'
 Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
-
+Plug 'preservim/nerdtree'
+Plug 'iamcco/markdown-preview.nvim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'
+Plug 'vim-scripts/argtextobj.vim'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
+Plug 'tommcdo/vim-exchange'
 "主题插件
 Plug 'overcache/NeoSolarized'
 Plug 'jacoborus/tender.vim'
@@ -110,12 +117,13 @@ Plug 'morhetz/gruvbox'
 " colorscheme gruvbox
 
 "状态栏插件
-Plug 'ap/vim-buftabline'
-"Plug 'Lokaltog/vim-powerline'
-Plug 'glepnir/spaceline.vim'
-" Use the icon plugin for better behavior
-Plug 'ryanoasis/vim-devicons'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
+"Plug 'ap/vim-buftabline'
+"Plug 'glepnir/spaceline.vim'
+" Use the icon plugin for better behavior
+"Plug 'ryanoasis/vim-devicons'
 " 插件列表结束
 call plug#end()
 " ===================== Start of Theme Settings =====================
@@ -133,46 +141,22 @@ colorscheme NeoSolarized
 "colorscheme solarized
 
 " 设置状态栏主题风格
-"let g:Powerline_colorscheme='solarized256'
 
+" ==
+" == vim-airline
+" ==
+let g:airline#extensions#tabline#enabled = 1
+nnoremap <C-j> :bnext<CR>
+nnoremap <C-k> :bprev<CR>
 " ==
 " == spaceline.vim
 " ==
-let g:spaceline_seperate_style = 'arrow'
-let g:spaceline_colorscheme = 'dracula'
-let g:spaceline_custom_vim_status = {"n": "🅝 ","V":"🅥 ","v":"🅥 ","\<C-v>": "🅥 ","i":"🅘 ","R":"🅡 ","s":"🅢 ","t":"🅣 ","c":"🅒 ","!":"SE"}
+"let g:spaceline_seperate_style = 'arrow'
+"let g:spaceline_colorscheme = 'dracula'
+"let g:spaceline_custom_vim_status = {"n": "🅝 ","V":"🅥 ","v":"🅥 ","\<C-v>": "🅥 
+"			\,"i":"🅘 ","R":"🅡 ","s":"🅢 ","t":"🅣 ","c":"🅒 ","!":"SE"}
 
-" ==
-" == vim-buftabline
-" ==
-nnoremap <C-j> :bnext<CR>
-nnoremap <C-k> :bprev<CR>
-"  此选项的值指定何时将带有缓冲区标签的行
-"  显示：
-"           0：从不
-"           1：仅当至少有两个缓冲区时
-"           2：总是
-let g:buftabline_show = 1
-" 此选项的值指定如何为缓冲区标签编号：
-"            0：无编号
-"            1：缓冲区编号
-"            2：序号
-let g:buftabline_numbers = 2
-" 当打开时，缓冲区的状态在缓冲区标签中指示。现在
-"   指示的唯一状态是缓冲区是否被“修改”。
-let g:buftabline_indicators = 1
-" 启用时，将在选项卡之间绘制一条垂直线。
-let g:buftabline_separators = 0
-nmap <leader>1 <Plug>BufTabLine.Go(1)
-nmap <leader>2 <Plug>BufTabLine.Go(2)
-nmap <leader>3 <Plug>BufTabLine.Go(3)
-nmap <leader>4 <Plug>BufTabLine.Go(4)
-nmap <leader>5 <Plug>BufTabLine.Go(5)
-nmap <leader>6 <Plug>BufTabLine.Go(6)
-nmap <leader>7 <Plug>BufTabLine.Go(7)
-nmap <leader>8 <Plug>BufTabLine.Go(8)
-nmap <leader>9 <Plug>BufTabLine.Go(9)
-nmap <leader>0 <Plug>BufTabLine.Go(10)
+
 " ===================== start of plugin settings =====================
 " ===
 " === fzf
@@ -237,6 +221,10 @@ nnoremap <LEADER>g= :GitGutterNextHunk<CR>
 nnoremap un :UndotreeToggle<CR>
 
 " ==
+" == NERDTree
+" ==
+nmap gn :NERDTreeToggle<CR>
+" ==
 " == Vimspector
 " ==
 let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools' ]
@@ -285,16 +273,44 @@ let g:startify_lists = [
         \ { 'type': function('s:gitUntracked'), 'header': ['   git untracked']},
         \ { 'type': 'commands',  'header': ['   Commands']       },
         \ ]
-
-
 " ==
 " == nerdcommenter
 " ==
 "创建默认映射
-let g:NERDCreateDefaultMappings  =  1
-let g:NERDSpaceDelims  =  1 
-let g:NERDSpaceDelims=1     " 注释后面自动加空格"
+" let g:NERDCreateDefaultMappings = 1
+" let g:NERDSpaceDelims = 1 
 
+
+" ==
+" == floaterm
+" ==
+noremap <leader>ra :FloatermNew ranger<CR>
+noremap <leader>lg :FloatermNew lazygit<CR>
+" ==
+" == markdown
+" ==
+nmap <C-s> <Plug>MarkdownPreview
+nmap <M-s> <Plug>MarkdownPreviewStop
+nmap <C-m> <Plug>MarkdownPreviewToggle
+" 指定浏览器路径
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {},
+    \ 'content_editable': v:false,
+    \ 'disable_filename': 0
+    \ }
+let g:mkdp_browser = 'chrome'
+let g:mkdp_auto_start = 1
+let g:mkdp_command_for_global = 1
+let g:mkdp_echo_preview_url = 1
+let g:mkdp_open_to_the_world = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ==
 " == coc.nvim
@@ -351,3 +367,29 @@ vmap <Leader>e <Plug>(coc-translator-ev)
 nmap <Leader>r <Plug>(coc-translator-r)
 vmap <Leader>r <Plug>(coc-translator-rv)
 
+map <F5> :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+	exec "w"
+	if &filetype == 'c'
+		exec "!g++ % -o %<"
+		exec "!time ./%<"
+	elseif &filetype == 'cpp'
+		exec "!g++ % -o %<"
+		exec "!time ./%<"
+	elseif &filetype == 'java' 
+		exec "!javac %" 
+		exec "!time java %<"
+	elseif &filetype == 'sh'
+		:!time bash %
+	elseif &filetype == 'python'
+		exec "!time python2.7 %"
+    elseif &filetype == 'html'
+        exec "!firefox % &"
+    elseif &filetype == 'go'
+        exec "!go build %<"
+        exec "!time go run %"
+    elseif &filetype == 'mkd'
+        exec "!~/.vim/markdown.pl % > %.html &"
+        exec "!firefox %.html &"
+	endif
+endfunc
