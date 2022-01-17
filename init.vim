@@ -80,7 +80,7 @@ Plug 'tpope/vim-sensible'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
 Plug 'preservim/nerdcommenter'
 Plug 'mbbill/undotree'
@@ -315,13 +315,13 @@ let g:mkdp_open_to_the_world = 1
 " ==
 " == coc.nvim
 " ==
-let g:coc_global_extensions = ['coc-pairs','coc-translator','coc-json','coc-clangd','coc-python','coc-vimlsp','coc-snippets','coc-marketplace','coc-flutter-tools']
+let g:coc_global_extensions = ['coc-pairs','coc-git','coc-translator','coc-json','coc-clangd','coc-python','coc-vimlsp','coc-snippets','coc-sh','coc-marketplace','coc-flutter-tools']
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=100
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 "使用Tab进行选择补全
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " 使用`[g` 和 `]g`去导航诊断
