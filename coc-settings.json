@@ -41,4 +41,10 @@
 	"git.removedSign.text": "▏",
   "clangd.path": "/home/vastness/.config/coc/extensions/coc-clangd-data/install/12.0.1/clangd_12.0.1/bin/clangd",
   "git.enableGutters": true
+	"git.addedSign.text": "▎",
+	"git.changedSign.text": "░",
+	"git.removedSign.text": "▏",
+	"git.changeRemovedSign.text": "▒",
+	"git.topRemovedSign.text": "▔",
+	"clangd.path": "/home/vastness/.config/coc/extensions/coc-clangd-data/install/12.0.1/clangd_12.0.1/bin/clangd"
 }
