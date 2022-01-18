@@ -34,5 +34,11 @@
 		"value": "\uf89f",
 		"variable": "\ue71b"
 	},
-	"clangd.path": "/home/vastness/.config/coc/extensions/coc-clangd-data/install/12.0.1/clangd_12.0.1/bin/clangd"
+	"git.changedSign.text": "░",
+	"git.addedSign.text": "▎",
+	"git.changeRemovedSign.text": "▒",
+	"git.topRemovedSign.text": "▔",
+	"git.removedSign.text": "▏",
+  "clangd.path": "/home/vastness/.config/coc/extensions/coc-clangd-data/install/12.0.1/clangd_12.0.1/bin/clangd",
+  "git.enableGutters": true
 }

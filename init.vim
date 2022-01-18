@@ -46,17 +46,17 @@ syntax on
 "切换buffer不需要保存
 set hidden
 " 剪贴板共享
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
 
 " ===================== Start of Keybindings Settings =====================
 " 定义快捷键到行首和行尾
-" nmap <C-a> ^
-" nmap <C-e> $
+nmap <C-a> ^
+nmap <C-e> $
 inoremap jj <ESC>
 " 设置快捷键将选中文本块复制至系统剪贴板
-nmap <Leader>y "+y
+" nmap <Leader>y "+y
 " 设置快捷键将系统剪贴板内容粘贴至 vim
-nmap <Leader>p "+p
+" nmap <Leader>p "+p
 " 定义快捷键关闭当前分割窗口
 nmap <Leader>q :q<CR>
 " 定义快捷键保存当前窗口内容
@@ -83,7 +83,9 @@ Plug 'tpope/vim-sensible'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
+" Plug 'APZelos/blamer.nvim'
+Plug 'kdheepak/lazygit.nvim'
 Plug 'mhinz/vim-startify'
 Plug 'preservim/nerdcommenter'
 Plug 'mbbill/undotree'
@@ -203,20 +205,26 @@ command! -bang -nargs=* MRU call fzf#vim#history(fzf#vim#with_preview())
 " == Git-Gutter
 " ==
 " let g:gitgutter_signs = 0
-let g:gitgutter_sign_allow_clobber = 0
+" let g:gitgutter_sign_allow_clobber = 0
 " let g:gitgutter_map_keys = 0
-let g:gitgutter_override_sign_column_highlight = 0
-let g:gitgutter_preview_win_floating = 1
-let g:gitgutter_sign_added = '▎'
-let g:gitgutter_sign_modified = '░'
-let g:gitgutter_sign_removed = '▏'
-let g:gitgutter_sign_removed_first_line = '▔'
-let g:gitgutter_sign_modified_removed = '▒'
+" let g:gitgutter_override_sign_column_highlight = 0
+" let g:gitgutter_preview_win_floating = 1
+" let g:gitgutter_sign_added = '▎'
+" let g:gitgutter_sign_modified = '░'
+" let g:gitgutter_sign_removed = '▏'
+" let g:gitgutter_sign_removed_first_line = '▔'
+" let g:gitgutter_sign_modified_removed = '▒'
 " autocmd BufWritePost * GitGutter
-nnoremap <LEADER>gf :GitGutterFold<CR>
-nnoremap H :GitGutterPreviewHunk<CR>
-nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
-nnoremap <LEADER>g= :GitGutterNextHunk<CR>
+" nnoremap <LEADER>gf :GitGutterFold<CR>
+" nnoremap H :GitGutterPreviewHunk<CR>
+" nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
+" nnoremap <LEADER>g= :GitGutterNextHunk<CR>
+
+" ==
+" == lazygit.nvim
+" ==
+noremap <leader>lg :LazyGit<CR>
+let g:lazygit_floating_window_scaling_factor = 1 "  factor for floating window
 
 " ==
 " == Undotree
@@ -226,29 +234,7 @@ nnoremap un :UndotreeToggle<CR>
 " ==
 " == NERDTree
 " ==
-nmap gn :NERDTreeToggle<CR>
-" ==
-" == Vimspector
-" ==
-let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools' ]
-let g:vimspector_enable_mappings = 'HUMAN'
-"2. 添加快捷键<leader>db快速生成.vimspector.json
-"vimspector
-let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
-"let g:vimspector_base_dir=expand('~/.vim/.vimspectorjson')
-function! s:read_template_into_buffer(template)
-    " has to be a function to avoid the extra space fzf#run insers otherwise
-    execute '0r ~/.vim/.vimspectorjson/'.a:template
-endfunction
-command! -bang -nargs=* LoadVimSpectorJsonTemplate call fzf#run({
-            \   'source': 'ls -1 ~/.vim/.vimspectorjson',
-            \   'down': 20,
-            \   'sink': function('<sid>read_template_into_buffer')
-            \ })
-noremap <leader>db :tabe .vimspector.json<CR>:LoadVimSpectorJsonTemplate<CR>
-sign define vimspectorBP text=☛ texthl=Normal
-sign define vimspectorBPDisabled text=☞ texthl=Normal
-"sign define vimspectorPC text=¶ texthl=SpellBad
+nmap tt :NERDTreeToggle<CR>
 
 " ===
 " === startify
@@ -288,7 +274,7 @@ let g:startify_lists = [
 " == floaterm
 " ==
 noremap <leader>ra :FloatermNew ranger<CR>
-noremap <leader>lg :FloatermNew lazygit<CR>
+" noremap <leader>lg :FloatermNew lazygit<CR>
 " ==
 " == markdown
 " ==
@@ -314,18 +300,40 @@ let g:mkdp_auto_start = 1
 let g:mkdp_command_for_global = 1
 let g:mkdp_echo_preview_url = 1
 let g:mkdp_open_to_the_world = 1
+" ==
+" == blamer.nvim
+" ==
+" let g:blamer_enabled = 1
+" let g:blamer_delay = 100
+" let g:blamer_prefix = ' 鹿 '
+" highlight Blamer guifg=lightgrey
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ==
 " == coc.nvim
 " ==
-let g:coc_global_extensions = ['coc-pairs','coc-translator','coc-json','coc-clangd','coc-python','coc-vimlsp','coc-snippets','coc-sh','coc-marketplace','coc-flutter-tools']
+let g:coc_global_extensions = ['coc-pairs','coc-lightbulb','coc-git','coc-translator','coc-json','coc-clangd','coc-python','coc-vimlsp','coc-snippets','coc-sh','coc-marketplace','coc-flutter-tools']
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=100
 "使用Tab进行选择补全
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " 使用`[g` 和 `]g`去导航诊断
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -359,7 +367,8 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 " ===
 " ===
 "coc-translator
-" NOTE: do NOT use `nore` mappings
+" ===
+" ===
 " 弹出翻译窗口
 nmap <Leader>t <Plug>(coc-translator-p)
 vmap <Leader>t <Plug>(coc-translator-pv)
@@ -369,30 +378,33 @@ vmap <Leader>e <Plug>(coc-translator-ev)
 " replace
 nmap <Leader>r <Plug>(coc-translator-r)
 vmap <Leader>r <Plug>(coc-translator-rv)
-
-map <F5> :call CompileRunGcc()<CR>
-func! CompileRunGcc()
-	exec "w"
-	if &filetype == 'c'
-		exec "!g++ % -o %<"
-		exec "!time ./%<"
-	elseif &filetype == 'cpp'
-		exec "!g++ % -o %<"
-		exec "!time ./%<"
-	elseif &filetype == 'java' 
-		exec "!javac %" 
-		exec "!time java %<"
-	elseif &filetype == 'sh'
-		:!time bash %
-	elseif &filetype == 'python'
-		exec "!time python2.7 %"
-    elseif &filetype == 'html'
-        exec "!firefox % &"
-    elseif &filetype == 'go'
-        exec "!go build %<"
-        exec "!time go run %"
-    elseif &filetype == 'mkd'
-        exec "!~/.vim/markdown.pl % > %.html &"
-        exec "!firefox %.html &"
-	endif
-endfunc
+" ===
+" ===
+" coc-git
+" ===
+" ===
+noremap <Leader>gf :CocCommand git.foldUnchanged<CR>
+" navigate chunks of current buffer
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" show chunk diff at current position
+nmap gs <Plug>(coc-git-chunkinfo)
+" show commit contains current position
+nmap gc <Plug>(coc-git-commit)
+" create text object for git chunks
+omap ig <Plug>(coc-git-chunk-inner)
+xmap ig <Plug>(coc-git-chunk-inner)
+omap ag <Plug>(coc-git-chunk-outer)
+xmap ag <Plug>(coc-git-chunk-outer)
+" ompile function
+noremap <leader>rc :call CompileRunGcc()<CR>
+function! CompileRunGcc()
+  execute "w"
+  if &filetype == 'c'
+    if !isdirectory('build')
+      execute "!mkdir build"
+    endif
+    execute "!gcc % -o build/%<"
+    execute "!time ./build/%<"
+  endif
+endfunction
