@@ -45,6 +45,9 @@ syntax enable
 syntax on
 "切换buffer不需要保存
 set hidden
+" 剪贴板共享
+set clipboard+=unnamedplus
+
 " ===================== Start of Keybindings Settings =====================
 " 定义快捷键到行首和行尾
 " nmap <C-a> ^
@@ -80,7 +83,7 @@ Plug 'tpope/vim-sensible'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
-" Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
 Plug 'preservim/nerdcommenter'
 Plug 'mbbill/undotree'
@@ -201,7 +204,7 @@ command! -bang -nargs=* MRU call fzf#vim#history(fzf#vim#with_preview())
 " ==
 " let g:gitgutter_signs = 0
 let g:gitgutter_sign_allow_clobber = 0
-let g:gitgutter_map_keys = 0
+" let g:gitgutter_map_keys = 0
 let g:gitgutter_override_sign_column_highlight = 0
 let g:gitgutter_preview_win_floating = 1
 let g:gitgutter_sign_added = '▎'
@@ -315,7 +318,7 @@ let g:mkdp_open_to_the_world = 1
 " ==
 " == coc.nvim
 " ==
-let g:coc_global_extensions = ['coc-pairs','coc-git','coc-translator','coc-json','coc-clangd','coc-python','coc-vimlsp','coc-snippets','coc-sh','coc-marketplace','coc-flutter-tools']
+let g:coc_global_extensions = ['coc-pairs','coc-translator','coc-json','coc-clangd','coc-python','coc-vimlsp','coc-snippets','coc-sh','coc-marketplace','coc-flutter-tools']
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
