@@ -343,7 +343,6 @@ let g:mkdp_open_to_the_world = 1
 " == coc.nvim
 " ==
 let g:coc_global_extensions = ['coc-pairs','coc-lightbulb','coc-git','coc-translator','coc-json','coc-clangd','coc-python','coc-vimlsp','coc-snippets','coc-sh','coc-marketplace','coc-flutter-tools']
-let g:coc_global_extensions = ['coc-pairs','coc-git','coc-translator','coc-json','coc-clangd','coc-python','coc-vimlsp','coc-snippets','coc-sh','coc-marketplace','coc-flutter-tools']
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -415,11 +414,6 @@ vmap <Leader>r <Plug>(coc-translator-rv)
 " coc-git
 " ===
 " ===
-noremap <Leader>gf :CocCommand git.foldUnchanged<CR>
-" navigate chunks of current buffer
-nmap [g <Plug>(coc-git-prevchunk)
-nmap ]g <Plug>(coc-git-nextchunk)
-
 noremap <leader>gf :CocCommand git.foldUnchanged<CR>
 " navigate chunks of current buffer
 nmap <Leader>- <Plug>(coc-git-prevchunk)
@@ -435,7 +429,6 @@ omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
 " ompile function
 noremap <leader>rc :call CompileRunGcc()<CR>
-noremap <leader>rn :call CompileRunGcc()<CR>
 function! CompileRunGcc()
   execute "w"
   if &filetype == 'c'
