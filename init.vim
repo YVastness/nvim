@@ -428,7 +428,7 @@ xmap ig <Plug>(coc-git-chunk-inner)
 omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
 " ompile function
-noremap <leader>rc :call CompileRunGcc()<CR>
+noremap <leader>rr :call CompileRunGcc()<CR>
 function! CompileRunGcc()
   execute "w"
   if &filetype == 'c'
