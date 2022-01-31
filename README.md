@@ -1,6 +1,6 @@
-<p align="center">Only tested on Windows11</p>
+<p align="center">Only tested on Windows11 wsl</p>
 
-#目录
+# 目录
 
 - [安装](#安装)
 - [快捷键](#快捷键)
@@ -16,31 +16,20 @@
 
 ## 安装
 
-最新版本的Vim 8.1+  使用下面命令安装 vim 版本并更新：
+最新版本的Neovim 使用下面命令安装 Neovim 版本并更新：
 
 ```bash
-brew install macvim # 安装 macvim
-brew install macvim --override-system-vim
+sudo apt install neovim # 安装 neovim
 ```
 
 将插件以及配置下载到 `~/.vim/` 目录中，这个目录是存放所有插件和配置的地方。vimscript是vim自己的一套脚本语言，通过这种脚本语言可以实现与 vim 交互，达到功能扩展的目的。一组 vimscript 就是一个 vim 插件，vim 的很多功能都由各式插件实现。
 
 ```shell
-$ git clone https://github.com/jaywcjlove/vim-web.git ~/.vim
-$ ln -s ~/.vim/.vimrc ~/.vimrc
+$ git clone https://gitee.com/yin_haoyu/nvim.git ~/.config/nvim
 # 插件管理器
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 # 安装主题
 curl -LSso ~/.vim/colors/molokai.vim https://raw.githubusercontent.com/fatih/molokai/master/colors/molokai.vim
-```
-
-或者**脚本下载安装**
-
-```bash
-# 安装 vim-web
-curl -sLf https://raw.githubusercontent.com/jaywcjlove/vim-web/master/install | bash -s -- install
-# 卸载 vim-web
-curl -sLf https://raw.githubusercontent.com/jaywcjlove/vim-web/master/install | bash -s -- uninstall
 ```
 
 ## 快捷键
@@ -50,7 +39,9 @@ U # 选中 - 变大写
 u # 选中 - 变小写
 ~ # 选中 - 变大写变小写，小写变大写
 ##########
-<ctrl+p> # 启动搜索文件
+\        # 启动搜索文件(需要下载fzf)
+<ctrl+l> # 启动搜索行
+<ctrl+h> # 启动搜索历史文件
 ;tt      # 开启/关闭代码导航
 ;fl      # 开启/关闭目录菜单
 :!which ls  # 找命令不推出vim运行命令
