@@ -1,13 +1,6 @@
+<p align="center">Only tested on Windows11</p>
 
-<p align="center"><img height="80" src="./vim-web-logo.png" /></p>
-
-<p align="center">Only tested on Mac OSx</p>
-<p align="center">在 <a href="https://github.com/jaywcjlove/vim-web/tree/vim-web">vim-web v2</a> 版本插件配置太多，新版本 v3 只配置少量的插件，是一个简单的版本。</p>
-
-<img align="center" src="./vim-web.gif">
-
-目录
-===
+#目录
 
 - [安装](#安装)
 - [快捷键](#快捷键)
