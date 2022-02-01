@@ -78,7 +78,7 @@ nmap <Leader>M %
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " ===================== Start of Plugin List=====================
-call plug#begin('~/.comfig/nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'easymotion/vim-easymotion'
