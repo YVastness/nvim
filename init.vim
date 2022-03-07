@@ -47,11 +47,14 @@ syntax on
 set hidden
 " 剪贴板共享
 " set clipboard+=unnamedplus
+" 拼写检查
+setlocal spell spelllang=en_us,cjk
 
 " ===================== Start of Keybindings Settings =====================
 " 定义快捷键到行首和行尾
-nmap <C-a> ^
-nmap <C-e> $
+inoremap <C-a> ^
+inoremap <C-e> $
+vnoremap y "+y
 inoremap jj <ESC>
 " 设置快捷键将选中文本块复制至系统剪贴板
 " nmap <Leader>y "+y
