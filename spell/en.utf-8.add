@@ -1,7 +1,7 @@
 #ursorcolumn
 cursorcolumn/!
 cursorcolumn
-unnamedplus
+#nnamedplus
 nmap
 airblade
 APZelos
@@ -93,3 +93,5 @@ aap
 ompile
 mkdir
 gcc
+unnamedplus/!
+unnamedplus
