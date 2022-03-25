@@ -213,3 +213,22 @@ let g:bookmark_save_per_working_dir = 1
 let g:bookmark_center = 1
 let g:bookmark_auto_close = 1
 let g:bookmark_location_list = 1
+" ===
+" === vim-quickrun
+" ===
+let g:quickrun_config = {
+\   "_" : {
+\       "outputter" : "message",
+\   },
+\}
+let g:quickrun_no_default_key_mappings = 1
+nmap <Leader>rr <Plug>(quickrun)
+map <M-r> :QuickRun<CR>
+
+" ===
+" === Telescope
+" ===
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>

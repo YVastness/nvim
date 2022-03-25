@@ -40,7 +40,7 @@ set hidden
 " 剪贴板共享
 " set clipboard+=unnamedplus
 " 拼写检查
-setlocal spell spelllang=en_us,cjk
+" setlocal spell spelllang=en_us,cjk
 
 " ===================== Start of Keybindings Settings =====================
 " 定义快捷键到行首和行尾

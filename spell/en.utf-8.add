@@ -95,3 +95,9 @@ mkdir
 gcc
 unnamedplus/!
 unnamedplus
+sarship
+init
+zsh
+autojump
+starship
+fmt
