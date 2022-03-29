@@ -19,11 +19,13 @@ set nocompatible
 set wildmenu
 
 " 总是显示状态栏
-set laststatus=2
+set laststatus=3
 " 显示光标当前位置
 set ruler
 " 开启行号显示
 set number
+" 开启相对行号显示
+" set relativenumber
 " 高亮显示当前行/列
 set cursorline
 "set cursorcolumn
@@ -53,7 +55,7 @@ inoremap jj <ESC>
 " 设置快捷键将系统剪贴板内容粘贴至 vim
 " nmap <Leader>p "+p
 " 定义快捷键关闭当前分割窗口
-nmap <Leader>q :q<CR>
+nmap <Leader>q :bd<CR>
 " 定义快捷键保存当前窗口内容
 nmap <Leader>w :w<CR>
 " 不做任何保存，直接退出 vim

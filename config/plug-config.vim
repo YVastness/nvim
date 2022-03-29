@@ -4,9 +4,9 @@ colorscheme NeoSolarized
 " ==
 " == vim-airline
 " ==
-let g:airline#extensions#tabline#enabled = 1
-nnoremap <C-j> :bnext<CR>
-nnoremap <C-k> :bprev<CR>
+" let g:airline#extensions#tabline#enabled = 1
+" nnoremap <C-j> :bnext<CR>
+" nnoremap <C-k> :bprev<CR>
 " ==
 " == spaceline.vim
 " ==
@@ -16,6 +16,117 @@ nnoremap <C-k> :bprev<CR>
 "			\,"i":"🅘 ","R":"🅡 ","s":"🅢 ","t":"🅣 ","c":"🅒 ","!":"SE"}
 
 
+" lua插件配置
+set termguicolors
+lua << EOF
+require("bufferline").setup{
+  options = {
+    --numbers = "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
+    --numbers = "both",
+    --- @deprecated, please specify numbers as a function to customize the styling
+    --number_style = "superscript" | "subscript" | "" | { "none", "subscript" }, -- buffer_id at index 1, ordinal at index 2
+    --number_style = "none",
+    close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
+    right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
+    left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
+    middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
+    -- NOTE: this plugin is designed with this icon in mind,
+    -- and so changing this is NOT recommended, this is intended
+    -- as an escape hatch for people who cannot bear it for whatever reason
+    indicator_icon = "",
+    buffer_close_icon = "",
+    modified_icon = "●",
+    close_icon = "",
+    left_trunc_marker = "",
+    right_trunc_marker = "",
+    --- name_formatter can be used to change the buffer's label in the bufferline.
+    --- Please note some names can/will break the
+    --- bufferline so use this at your discretion knowing that it has
+    --- some limitations that will *NOT* be fixed.
+    name_formatter = function(buf) -- buf contains a "name", "path" and "bufnr"
+      -- remove extension from markdown files for example
+      if buf.name:match("%.md") then
+        return vim.fn.fnamemodify(buf.name, ":t:r")
+      end
+    end,
+    max_name_length = 15,
+    max_prefix_length = 12, -- prefix used when a buffer is de-duplicated
+    tab_size = 15,
+    --diagnostics = false | "nvim_lsp" | "coc",
+    diagnostics = "coc",
+    diagnostics_update_in_insert = false,
+    --[[diagnostics_indicator = function(count, level, diagnostics_dict, context)
+      return "(" .. count .. ")"
+    end,]]
+    -- rest of config ...
+
+    --- count is an integer representing total count of errors
+    --- level is a string "error" | "warning"
+    --- diagnostics_dict is a dictionary from error level ("error", "warning" or "info")to number of errors for each level.
+    --- this should return a string
+    --- Don't get too fancy as this function will be executed a lot
+    diagnostics_indicator = function(count, level, diagnostics_dict, context)
+      local icon = level:match("error") and " " or " "
+      return " " .. icon .. count
+    end,
+    -- NOTE: this will be called a lot so don't do any heavy processing here
+    custom_filter = function(buf_number)
+      --如果是defx则隐藏
+      local finded, _ = string.find(vim.bo[buf_number].filetype, "defx")
+      if finded ~= nil then
+        return false
+      end
+      return true
+    end,
+    --offsets = {{filetype = "NvimTree", text = "File Explorer" | function , text_align = "left" | "center" | "right"}},
+    --show_buffer_icons = true | false, -- disable filetype icons for buffers
+    show_buffer_icons = true, -- disable filetype icons for buffers
+    --show_buffer_close_icons = true | false,
+    show_buffer_close_icons = false,
+    --show_close_icon = true | false,
+    show_close_icon = false,
+    --show_tab_indicators = true | false,
+    show_tab_indicators = true,
+    persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
+    -- can also be a table containing 2 custom separators
+    -- [focused and unfocused]. eg: { '|', '|' }
+    --separator_style = "slant" | "thick" | "thin" | {"any", "any"},
+    separator_style = "thin",
+    --enforce_regular_tabs = false | true,
+    enforce_regular_tabs = false,
+    --always_show_bufferline = true | false,
+    always_show_bufferline = true
+    --[[sort_by = "id" | "extension" | "relative_directory" | "directory" | "tabs" | function(buffer_a, buffer_b)
+        -- add custom logic
+        return buffer_a.modified > buffer_b.modified
+      end]]
+  }
+}
+require('lualine').setup{
+options = { theme = 'modus-vivendi' }
+}
+require("trouble").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
+EOF
+
+" ==
+" == bufferline.nvim
+" ==
+" These commands will navigate through buffers in order regardless of which mode you are using
+" e.g. if you change the order of buffers :bnext and :bprevious will not respect the custom ordering
+nnoremap <silent><C-k> :BufferLineCycleNext<CR>
+nnoremap <silent><C-j> :BufferLineCyclePrev<CR>
+
+" These commands will move the current buffer backwards or forwards in the bufferline
+nnoremap <silent><A-j> :BufferLineMoveNext<CR>
+nnoremap <silent><A-k> :BufferLineMovePrev<CR>
+
+" These commands will sort buffers by directory, language, or a custom criteria
+nnoremap <silent>be :BufferLineSortByExtension<CR>
+nnoremap <silent>bd :BufferLineSortByDirectory<CR>
 " ===
 " === fzf
 " ===
@@ -80,10 +191,10 @@ command! -bang -nargs=* MRU call fzf#vim#history(fzf#vim#with_preview())
 noremap <leader>lg :LazyGit<CR>
 let g:lazygit_floating_window_scaling_factor = 1 "  factor for floating window
 
-" ==
+" ===
 " === lazygit.nvim
 " ===
-noremap <leader>lg :LazyGit<CR>
+" noremap <leader>lg :LazyGit<CR>
 let g:lazygit_floating_window_winblend = 0 " transparency of floating window
 let g:lazygit_floating_window_scaling_factor = 1.0 " scaling factor for floating window
 let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " customize lazygit popup window corner characters
@@ -157,7 +268,10 @@ let g:startify_lists = [
 " ==
 " == floaterm
 " ==
-noremap <leader>ra :FloatermNew ranger<CR>
+noremap <leader>ra :FloatermNew --height=0.9 --width=0.9 ranger<CR>
+noremap <leader>rr :FloatermNew --height=0.9 --width=0.5 --position=topright --autoclose=0 gcc % -o %< && ./%<<CR>
+noremap <leader>te :FloatermToggle<CR>
+
 " noremap <leader>lg :FloatermNew lazygit<CR>
 " ==
 " == markdown
@@ -222,7 +336,7 @@ let g:quickrun_config = {
 \   },
 \}
 let g:quickrun_no_default_key_mappings = 1
-nmap <Leader>rr <Plug>(quickrun)
+" nmap <Leader>rr <Plug>(quickrun)
 map <M-r> :QuickRun<CR>
 
 " ===

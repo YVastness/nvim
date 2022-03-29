@@ -30,6 +30,7 @@ Plug 'vim-scripts/argtextobj.vim'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'tommcdo/vim-exchange'
 Plug 'michaeljsmith/vim-indent-object'
+" 下栏
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'tommcdo/vim-exchange'
@@ -54,8 +55,16 @@ Plug 'morhetz/gruvbox'
 " colorscheme gruvbox
 
 "状态栏插件
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+" If you want to have icons in your statusline choose one of these
+Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
+" 下栏
+Plug 'folke/trouble.nvim'
+Plug 'nvim-lualine/lualine.nvim'
+" Plug 'ryanoasis/vim-devicons' Icons without colours
+" 上栏
+Plug 'akinsho/bufferline.nvim'
 
 "Plug 'ap/vim-buftabline'
 "Plug 'glepnir/spaceline.vim'
