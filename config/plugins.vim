@@ -20,6 +20,7 @@ Plug 'thinca/vim-quickrun'
 Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
 " Plug 'preservim/nerdtree'
+Plug 'ellisonleao/glow.nvim'
 " Bookmarks
 Plug 'MattesGroeger/vim-bookmarks'
 
