@@ -269,7 +269,7 @@ let g:startify_lists = [
 " == floaterm
 " ==
 noremap <leader>ra :FloatermNew --height=0.9 --width=0.9 ranger<CR>
-noremap <leader>gw :FloatermNew --height=0.9 --width=0.9 glow<CR>
+noremap <leader>gw :FloatermNew --height=0.9 --width=0.9 glow -p %:t<CR>
 noremap <leader>rr :FloatermNew --height=0.9 --width=0.5 --position=topright --autoclose=0 gcc % -o %< && ./%<<CR>
 noremap <leader>te :FloatermToggle<CR>
 
