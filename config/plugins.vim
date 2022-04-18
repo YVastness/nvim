@@ -21,10 +21,15 @@ Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
 " Plug 'preservim/nerdtree'
 Plug 'ellisonleao/glow.nvim'
+" plantuml
+Plug 'sheerun/vim-polyglot'
+Plug 'tyru/open-browser.vim'
+Plug 'weirongxu/plantuml-previewer.vim'
+Plug 'aklt/plantuml-syntax'
 " Bookmarks
 Plug 'MattesGroeger/vim-bookmarks'
-
-Plug 'iamcco/markdown-preview.nvim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+"Plug 'iamcco/markdown-preview.nvim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/argtextobj.vim'
@@ -65,7 +70,7 @@ Plug 'folke/trouble.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 " Plug 'ryanoasis/vim-devicons' Icons without colours
 " 上栏
-Plug 'akinsho/bufferline.nvim'
+Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 
 "Plug 'ap/vim-buftabline'
 "Plug 'glepnir/spaceline.vim'
