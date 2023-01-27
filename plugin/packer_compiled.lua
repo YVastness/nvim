@@ -84,10 +84,30 @@ _G.packer_plugins = {
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ReplaceWithRegister = {
+    loaded = true,
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/ReplaceWithRegister",
+    url = "https://github.com/vim-scripts/ReplaceWithRegister"
+  },
+  ["argtextobj.vim"] = {
+    loaded = true,
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/argtextobj.vim",
+    url = "https://github.com/vim-scripts/argtextobj.vim"
+  },
+  ["bufdelete.nvim"] = {
+    loaded = true,
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/bufdelete.nvim",
+    url = "https://github.com/famiu/bufdelete.nvim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
+  },
+  catppuccin = {
+    loaded = true,
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
@@ -113,6 +133,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["lazygit.nvim"] = {
+    loaded = true,
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
+    url = "https://github.com/kdheepak/lazygit.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -185,10 +210,50 @@ _G.packer_plugins = {
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
+  undotree = {
+    loaded = true,
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/undotree",
+    url = "https://github.com/mbbill/undotree"
+  },
+  ["vim-bookmarks"] = {
+    loaded = true,
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/vim-bookmarks",
+    url = "https://github.com/MattesGroeger/vim-bookmarks"
+  },
+  ["vim-easymotion"] = {
+    loaded = true,
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/vim-easymotion",
+    url = "https://github.com/easymotion/vim-easymotion"
+  },
+  ["vim-exchange"] = {
+    loaded = true,
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/vim-exchange",
+    url = "https://github.com/tommcdo/vim-exchange"
+  },
+  ["vim-indent-object"] = {
+    loaded = true,
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/vim-indent-object",
+    url = "https://github.com/michaeljsmith/vim-indent-object"
+  },
+  ["vim-startify"] = {
+    loaded = true,
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/vim-startify",
+    url = "https://github.com/mhinz/vim-startify"
+  },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
+  },
   ["vim-tmux-navigator"] = {
     loaded = true,
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
     url = "https://github.com/christoomey/vim-tmux-navigator"
+  },
+  ["vim-visual-multi"] = {
+    loaded = true,
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
+    url = "https://github.com/mg979/vim-visual-multi"
   }
 }
 

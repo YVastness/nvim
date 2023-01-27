@@ -1,4 +1,4 @@
--- 自动安装packer
+
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -25,10 +25,21 @@ vim.cmd([[
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'folke/tokyonight.nvim' -- 主题
+  use { "catppuccin/nvim", as = "catppuccin" }
   use {
     'nvim-lualine/lualine.nvim',  -- 状态栏
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }  -- 状态栏图标
   }
+  use 'famiu/bufdelete.nvim'
+  use "mhinz/vim-startify"
+  use "mbbill/undotree"
+  use "mg979/vim-visual-multi"
+  use "MattesGroeger/vim-bookmarks"
+  use "vim-scripts/argtextobj.vim"
+  use 'vim-scripts/ReplaceWithRegister'
+  use 'tommcdo/vim-exchange'
+  use 'michaeljsmith/vim-indent-object'
+  -- use 'machakann/vim-highlightedyank'
   use {
     'nvim-tree/nvim-tree.lua',  -- 文档树
     requires = {
@@ -53,6 +64,7 @@ return require('packer').startup(function(use)
 
   use "numToStr/Comment.nvim" -- gcc和gc注释
   use "windwp/nvim-autopairs" -- 自动补全括号
+  use "tpope/vim-surround"
 
   use "akinsho/bufferline.nvim" -- buffer分割线
   use "lewis6991/gitsigns.nvim" -- 左则git提示
@@ -61,7 +73,8 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim', tag = '0.1.1',  -- 文件检索
     requires = { {'nvim-lua/plenary.nvim'} }
   }
-
+  use "kdheepak/lazygit.nvim"
+  use "easymotion/vim-easymotion"
   if packer_bootstrap then
     require('packer').sync()
   end
