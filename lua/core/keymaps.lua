@@ -18,15 +18,14 @@ keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- 常规
 keymap.set("n", "<leader>w", ":w<CR>")
 keymap.set("n", "<leader>q", ":Bdelete<CR>")
-keymap.set("n", "<leader>Q", ":wqa<CR>")
+keymap.set("n", "<leader>Q", ":qa<CR>")
 -- 窗口
+keymap.set("n", "<leader>e", "<C-w>w")
 keymap.set("n", "<leader>sv", "<C-w>v") -- 水平新增窗口 
 keymap.set("n", "<leader>sh", "<C-w>s") -- 垂直新增窗口
 
 -- 取消高亮
 keymap.set("n", "<leader>nh", ":nohl<CR>")
-
-keymap.set("n", "<C-v>", "")
 
 -- ---------- 插件 ---------- ---
 -- nvim-tree
@@ -36,5 +35,11 @@ keymap.set("n", "tf", ":NvimTreeFindFile<CR>")
 -- bufferline
 keymap.set("n", "<C-j>", ":BufferLineCyclePrev<CR>", opt)
 keymap.set("n", "<C-k>", ":BufferLineCycleNext<CR>", opt)
-keymap.set("n", "gb", ":BufferLinePick<CR>", opt)
--- keymap.set("n", "<leader>q", ":BufferLinePickClose<CR>")
+keymap.set("n", "<leader>bp", ":BufferLinePick<CR>", opt)
+keymap.set("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
+-- translator
+keymap.set("n", "<leader>tt", ":Translate<CR>", opt)
+keymap.set("v", "<leader>tt", ":TranslateV<CR>", opt)
+keymap.set("n", "<leader>tw", ":TranslateW<CR>", opt)
+keymap.set("v", "<leader>tw", ":TranslateWV<CR>", opt)
+-- Replace the text with translation TranslateR TranslateR
