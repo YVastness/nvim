@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/catppuccin",
     url = "https://github.com/catppuccin/nvim"
   },
+  ["cmp-cmdline"] = {
+    loaded = true,
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
+    url = "https://github.com/hrsh7th/cmp-cmdline"
+  },
   ["cmp-look"] = {
     loaded = true,
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/cmp-look",
