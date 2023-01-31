@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/argtextobj.vim",
     url = "https://github.com/vim-scripts/argtextobj.vim"
   },
+  ["auto-save.nvim"] = {
+    loaded = true,
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/auto-save.nvim",
+    url = "https://github.com/Pocco81/auto-save.nvim"
+  },
   ["bufdelete.nvim"] = {
     loaded = true,
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/bufdelete.nvim",
@@ -109,25 +114,35 @@ _G.packer_plugins = {
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/catppuccin",
     url = "https://github.com/catppuccin/nvim"
   },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
+  },
   ["cmp-cmdline"] = {
     loaded = true,
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
     url = "https://github.com/hrsh7th/cmp-cmdline"
-  },
-  ["cmp-look"] = {
-    loaded = true,
-    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/cmp-look",
-    url = "https://github.com/octaltree/cmp-look"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cmp-nvim-lua"] = {
+    loaded = true,
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
+    url = "https://github.com/hrsh7th/cmp-nvim-lua"
+  },
   ["cmp-path"] = {
     loaded = true,
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
+  },
+  ["cmp-spell"] = {
+    loaded = true,
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/cmp-spell",
+    url = "https://github.com/f3fora/cmp-spell"
   },
   cmp_luasnip = {
     loaded = true,
@@ -154,6 +169,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/hop.nvim",
     url = "https://github.com/phaazon/hop.nvim"
+  },
+  ["impatient.nvim"] = {
+    loaded = true,
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/impatient.nvim",
+    url = "https://github.com/lewis6991/impatient.nvim"
   },
   ["lazygit.nvim"] = {
     loaded = true,
@@ -239,6 +259,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
+  },
+  ["vim-autoread"] = {
+    loaded = true,
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/vim-autoread",
+    url = "https://github.com/djoshea/vim-autoread"
   },
   ["vim-bookmarks"] = {
     loaded = true,

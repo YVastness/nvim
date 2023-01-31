@@ -36,4 +36,4 @@ opt.termguicolors = true
 opt.signcolumn = "yes"
 --catppuccin or catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
 --tokyonight-moon
-vim.cmd.colorscheme "tokyonight-moon"
+vim.cmd.colorscheme "catppuccin"

@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
+local opt = { noremap = true, silent = true }
 -- ---------- 插入模式 ---------- ---
 keymap.set("i", "jk", "<ESC>")
 keymap.set("i", "jj", "<ESC>")
@@ -20,7 +20,7 @@ keymap.set("n", "<leader>w", ":w<CR>")
 keymap.set("n", "<leader>q", ":Bdelete<CR>")
 keymap.set("n", "<leader>Q", ":qa<CR>")
 -- 窗口
-keymap.set("n", "<leader>e", "<C-w>w")
+keymap.set("n", "<leader>e", "<C-w>h")
 keymap.set("n", "<leader>sv", "<C-w>v") -- 水平新增窗口 
 keymap.set("n", "<leader>sh", "<C-w>s") -- 垂直新增窗口
 
@@ -35,8 +35,10 @@ keymap.set("n", "tf", ":NvimTreeFindFile<CR>")
 -- bufferline
 keymap.set("n", "<C-j>", ":BufferLineCyclePrev<CR>", opt)
 keymap.set("n", "<C-k>", ":BufferLineCycleNext<CR>", opt)
-keymap.set("n", "<leader>bp", ":BufferLinePick<CR>", opt)
-keymap.set("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
+keymap.set("n", "<leader>tp", ":BufferLinePick<CR>", opt)
+keymap.set("n", "<leader>tc", ":BufferLinePickClose<CR>", opt)
+keymap.set("n", "<leader>tl", ":BufferLineCloseLeft<CR>", opt)
+keymap.set("n", "<leader>tr", ":BufferLineCloseRight<CR>", opt)
 -- translator
 keymap.set("n", "<leader>tt", ":Translate<CR>", opt)
 keymap.set("v", "<leader>tt", ":TranslateV<CR>", opt)

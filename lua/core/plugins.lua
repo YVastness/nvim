@@ -23,15 +23,18 @@ vim.cmd([[
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
+    -- Is using a standard Neovim install, i.e. built from source or using a
+    -- provided appimage.
+    use 'lewis6991/impatient.nvim'
 
     use 'famiu/bufdelete.nvim'
     use "mhinz/vim-startify"
     use "mbbill/undotree"
     use "mg979/vim-visual-multi"
     use "MattesGroeger/vim-bookmarks"
---==========================
--- Motion and Text Object
---==========================
+    --==========================
+    -- Motion and Text Object
+    --==========================
     use "vim-scripts/argtextobj.vim"
     use 'vim-scripts/ReplaceWithRegister'
     use 'tommcdo/vim-exchange'
@@ -52,6 +55,8 @@ return require('packer').startup(function(use)
             require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
         end
     }
+    use( "Pocco81/auto-save.nvim")
+    use "djoshea/vim-autoread"
 
 
 
@@ -72,14 +77,18 @@ return require('packer').startup(function(use)
     }
     -- 自动补全
     use "hrsh7th/nvim-cmp"
-    use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-cmdline"
-    use "L3MON4D3/LuaSnip" -- snippets引擎，不装这个自动补全会出问题
+    use "hrsh7th/cmp-buffer"
     use "saadparwaiz1/cmp_luasnip"
-    use "rafamadriz/friendly-snippets"
-    use "octaltree/cmp-look" -- 字典提示
+    use "hrsh7th/cmp-nvim-lua"
+    use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-path" -- 文件路径
+    use "f3fora/cmp-spell"
     use 'voldikss/vim-translator'
+
+    -- snippets
+    use "L3MON4D3/LuaSnip" -- snippets引擎，不装这个自动补全会出问题
+    use "rafamadriz/friendly-snippets"
 
     use "windwp/nvim-autopairs" -- 自动补全括号
     use "tpope/vim-surround"
@@ -91,10 +100,10 @@ return require('packer').startup(function(use)
     }
     use "kdheepak/lazygit.nvim"
     use 'j-hui/fidget.nvim'
---==========================
--- 外观
---==========================
--- 主题
+    --==========================
+    -- 外观
+    --==========================
+    -- 主题
     use 'folke/tokyonight.nvim'
     use { "catppuccin/nvim", as = "catppuccin" }
     use {
@@ -102,7 +111,7 @@ return require('packer').startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }  -- 状态栏图标
     }
     use "lewis6991/gitsigns.nvim" -- 左则git提示
--- 放到最后才能显示图标
+    -- 放到最后才能显示图标
     use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
 
     if packer_bootstrap then
