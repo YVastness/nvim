@@ -94,16 +94,13 @@ return require('packer').startup(function(use)
     use "tpope/vim-surround"
 
 
-    use {
-        "akinsho/toggleterm.nvim", tag = '*', config = function()
-        require("toggleterm").setup()
-        end
-    }
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',  -- 文件检索
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
-    use "kdheepak/lazygit.nvim"
+    use({
+        "nvim-telescope/telescope.nvim",
+        requires = { { "nvim-lua/plenary.nvim" }, { "kdheepak/lazygit.nvim" } },
+        config = function()
+            require("telescope").load_extension("lazygit")
+        end,
+    })
     use 'j-hui/fidget.nvim'
     --==========================
     -- 外观
