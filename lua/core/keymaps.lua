@@ -45,3 +45,7 @@ keymap.set("v", "<leader>tt", ":TranslateV<CR>", opt)
 keymap.set("n", "<leader>tw", ":TranslateW<CR>", opt)
 keymap.set("v", "<leader>tw", ":TranslateWV<CR>", opt)
 -- Replace the text with translation TranslateR TranslateR
+-- LazyGit
+keymap.set("n", "<leader>lg", ":LazyGit<CR>", opt)
+-- toggleTerm
+keymap.set("n", "<A-1>", ":ToggleTerm<CR>", opt)
