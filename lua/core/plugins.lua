@@ -50,16 +50,22 @@ return require('packer').startup(function(use)
     use {
         'phaazon/hop.nvim',
         branch = 'v2', -- optional but strongly recommended
-        config = function()
-            -- you can configure Hop the way you like here; see :h hop-config
-            require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-        end
     }
     use( "Pocco81/auto-save.nvim")
     use "djoshea/vim-autoread"
 
 
-
+    use {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+            require("todo-comments").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    }
     use {
         'nvim-tree/nvim-tree.lua',
         requires = {
@@ -68,7 +74,8 @@ return require('packer').startup(function(use)
         tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
     -- use "christoomey/vim-tmux-navigator" -- 用ctl-hjkl来定位窗口
-    use "nvim-treesitter/nvim-treesitter" -- 语法高亮
+    use 'nvim-treesitter/nvim-treesitter'
+    use 'nvim-treesitter/nvim-treesitter-textobjects'
     use "p00f/nvim-ts-rainbow" -- 配合treesitter，不同括号颜色区分
     use {
         "williamboman/mason.nvim",
@@ -114,6 +121,7 @@ return require('packer').startup(function(use)
     }
     use "lewis6991/gitsigns.nvim" -- 左则git提示
     use "lukas-reineke/indent-blankline.nvim"
+    -- use "RRethy/vim-illuminate"
     -- 放到最后才能显示图标
     use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
 
