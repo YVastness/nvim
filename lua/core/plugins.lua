@@ -113,6 +113,7 @@ return require('packer').startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }  -- 状态栏图标
     }
     use "lewis6991/gitsigns.nvim" -- 左则git提示
+    use "lukas-reineke/indent-blankline.nvim"
     -- 放到最后才能显示图标
     use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
 
