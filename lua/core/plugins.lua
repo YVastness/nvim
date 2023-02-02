@@ -1,8 +1,8 @@
 local ensure_packer = function()
     local fn = vim.fn
-    local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
     if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
         vim.cmd [[packadd packer.nvim]]
         return true
     end
@@ -50,8 +50,12 @@ return require('packer').startup(function(use)
     use {
         'phaazon/hop.nvim',
         branch = 'v2', -- optional but strongly recommended
+        config = function()
+            -- you can configure Hop the way you like here; see :h hop-config
+            require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+        end
     }
-    use( "Pocco81/auto-save.nvim")
+    use("Pocco81/auto-save.nvim")
     use "djoshea/vim-autoread"
 
 
@@ -75,12 +79,17 @@ return require('packer').startup(function(use)
     }
     -- use "christoomey/vim-tmux-navigator" -- 用ctl-hjkl来定位窗口
     use 'nvim-treesitter/nvim-treesitter'
-    use 'nvim-treesitter/nvim-treesitter-textobjects'
+    -- use 'nvim-treesitter/nvim-treesitter-textobjects'
     use "p00f/nvim-ts-rainbow" -- 配合treesitter，不同括号颜色区分
     use {
         "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",  -- 这个相当于mason.nvim和lspconfig的桥梁
-        "neovim/nvim-lspconfig"
+        "williamboman/mason-lspconfig.nvim", -- 这个相当于mason.nvim和lspconfig的桥梁
+        "neovim/nvim-lspconfig",
+        "ray-x/lsp_signature.nvim" -- show function signature when typingg"
+    }
+    use {
+        'kosayoda/nvim-lightbulb',
+        requires = 'antoinemadec/FixCursorHold.nvim',
     }
     -- 自动补全
     use "hrsh7th/nvim-cmp"
@@ -100,7 +109,6 @@ return require('packer').startup(function(use)
     use "windwp/nvim-autopairs" -- 自动补全括号
     use "tpope/vim-surround"
 
-
     use({
         "nvim-telescope/telescope.nvim",
         requires = { { "nvim-lua/plenary.nvim" }, { "kdheepak/lazygit.nvim" } },
@@ -109,6 +117,7 @@ return require('packer').startup(function(use)
         end,
     })
     use 'j-hui/fidget.nvim'
+    use 'akinsho/toggleterm.nvim'
     --==========================
     -- 外观
     --==========================
@@ -116,14 +125,14 @@ return require('packer').startup(function(use)
     use 'folke/tokyonight.nvim'
     use { "catppuccin/nvim", as = "catppuccin" }
     use {
-        'nvim-lualine/lualine.nvim',  -- 状态栏
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }  -- 状态栏图标
+        'nvim-lualine/lualine.nvim', -- 状态栏
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true } -- 状态栏图标
     }
     use "lewis6991/gitsigns.nvim" -- 左则git提示
     use "lukas-reineke/indent-blankline.nvim"
     -- use "RRethy/vim-illuminate"
     -- 放到最后才能显示图标
-    use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+    use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
 
     if packer_bootstrap then
         require('packer').sync()

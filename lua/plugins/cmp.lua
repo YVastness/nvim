@@ -171,7 +171,7 @@ cmp.setup({
         documentation = cmp.config.window.bordered(),
     },
     experimental = {
-        ghost_text = false,
+        ghost_text = true,
     },
 })
 cmp.setup.cmdline('/', {
@@ -188,3 +188,6 @@ cmp.setup.cmdline(':', {
     { name = 'path' }
   })
 })
+
+vim.opt.spell = true
+vim.opt.spelllang = { 'en_us' }

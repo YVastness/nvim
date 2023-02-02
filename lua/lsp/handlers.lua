@@ -1,20 +1,23 @@
 local vim = vim
-require("mason").setup({
-    ui = {
-        icons = {
-            -- package_installed = "✓",
-            -- package_pending = "➜",
-            -- package_uninstalled = "✗"
-        }
-    }
-})
+-- require("mason").setup({
+--     ui = {
+--         icons = {
+--             -- package_installed = "✓",
+--             -- package_pending = "➜",
+--             -- package_uninstalled = "✗"
+--         }
+--     }
+-- })
+--
+-- require("mason-lspconfig").setup({
+--     -- 确保安装，根据需要填写
+--     ensure_installed = {
+--         "sumneko_lua", 'quick_lint_js', 'pyright', 'tsserver', 'vimls',
+--     },
+-- })
 
-require("mason-lspconfig").setup({
-    -- 确保安装，根据需要填写
-    ensure_installed = {
-        "sumneko_lua", 'quick_lint_js', 'pyright', 'tsserver', 'vimls',
-    },
-})
+
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }
@@ -44,21 +47,24 @@ local on_attach = function(client, bufnr)
     end, bufopts)
     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+    vim.keymap.set('n', '<A-CR>', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', '<space>re', vim.lsp.buf.references, bufopts)
-        vim.keymap.set('n', '<space>fa', function() vim.lsp.buf.format { async = true } end, bufopts)
+    vim.keymap.set('n', '<space>fa', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
 
 local lsp_flags = {
     -- This is the default in Nvim 0.7+
-    debounce_text_changes = 150,
+    -- debounce_text_changes = 150,
 }
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 
-local servers = { 'sumneko_lua', 'quick_lint_js', 'pyright', 'tsserver', 'vimls',}
+local servers = { 'sumneko_lua', 'quick_lint_js', 'pyright', 'tsserver', 'vimls', }
+
+
+
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         capabilities = capabilities,
@@ -66,3 +72,4 @@ for _, lsp in ipairs(servers) do
         flags = lsp_flags,
     }
 end
+-- vim.cmd([[ autocmd CursorHold,CursorHoldI * lua require('code-actions').code_action_listener()]])
