@@ -55,7 +55,15 @@ return require('packer').startup(function(use)
             require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
         end
     }
-    use("Pocco81/auto-save.nvim")
+    use({
+        "Pocco81/auto-save.nvim",
+        config = function()
+            require("auto-save").setup {
+                -- your config goes here
+                -- or just leave it empty :)
+            }
+        end,
+    })
     use "djoshea/vim-autoread"
 
 
@@ -81,16 +89,17 @@ return require('packer').startup(function(use)
     use 'nvim-treesitter/nvim-treesitter'
     -- use 'nvim-treesitter/nvim-treesitter-textobjects'
     use "p00f/nvim-ts-rainbow" -- 配合treesitter，不同括号颜色区分
+    
+
+    -- LSP
     use {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim", -- 这个相当于mason.nvim和lspconfig的桥梁
         "neovim/nvim-lspconfig",
-        "ray-x/lsp_signature.nvim" -- show function signature when typingg"
+        'jose-elias-alvarez/null-ls.nvim' -- LSP diagnostics and code actions
     }
-    use {
-        'kosayoda/nvim-lightbulb',
-        requires = 'antoinemadec/FixCursorHold.nvim',
-    }
+
+
     -- 自动补全
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-cmdline"
@@ -100,6 +109,8 @@ return require('packer').startup(function(use)
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-path" -- 文件路径
     use "f3fora/cmp-spell"
+
+
     use 'voldikss/vim-translator'
 
     -- snippets
@@ -109,6 +120,11 @@ return require('packer').startup(function(use)
     use "windwp/nvim-autopairs" -- 自动补全括号
     use "tpope/vim-surround"
 
+    use {
+        "akinsho/toggleterm.nvim", tag = '*', config = function()
+            require("toggleterm").setup()
+        end
+    }
     use({
         "nvim-telescope/telescope.nvim",
         requires = { { "nvim-lua/plenary.nvim" }, { "kdheepak/lazygit.nvim" } },
@@ -117,7 +133,6 @@ return require('packer').startup(function(use)
         end,
     })
     use 'j-hui/fidget.nvim'
-    use 'akinsho/toggleterm.nvim'
     --==========================
     -- 外观
     --==========================

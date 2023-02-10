@@ -1,24 +1,22 @@
-local status_ok, autosave = pcall(require, "autosave")
-if not status_ok then
-  vim.notify("autosave not found!")
-  return
-end
+require("auto-save").setup {
+    -- your config goes here
+    -- or just leave it empty :)
+    enabled = true, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
+    trigger_events = { "InsertLeave", "TextChanged" }, -- vim events that trigger auto-save. See :h events
+    -- function that determines whether to save the current buffer or not
+    -- return true: if buffer is ok to be saved
+    -- return false: if it's not ok to be saved
+    condition = function(buf)
+        local fn = vim.fn
+        local utils = require("auto-save.utils.data")
 
-autosave.setup(
-    {
-        enabled = false,
-        -- execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
-        execution_message = "",
-        events = {"InsertLeave", "TextChanged"},
-        conditions = {
-            exists = true,
-            filename_is_not = { "plugins.lua" },
-            filetype_is_not = {},
-            modifiable = true
-        },
-        write_all_buffers = false,
-        on_off_commands = true,
-        clean_command_line_interval = 0,
-        debounce_delay = 135
-    }
-)
+        if fn.getbufvar(buf, "&modifiable") == 1 and
+            utils.not_in(fn.getbufvar(buf, "&filetype"), {}) and
+            utils.not_in(fn.expand("%:t"), {'plugins.lua'}) then
+            return true -- met condition(s), can save
+        end
+        return false -- can't save
+    end,
+    write_all_buffers = false, -- write all buffers when the current one meets `condition`
+    debounce_delay = 135, -- saves the file at most every `debounce_delay` milliseconds
+}

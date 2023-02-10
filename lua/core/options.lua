@@ -34,6 +34,7 @@ opt.smartcase = true
 -- 外观
 opt.termguicolors = true
 opt.signcolumn = "yes"
+opt.hidden = true
 --catppuccin or catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
 --tokyonight-moon
 vim.cmd.colorscheme "catppuccin"

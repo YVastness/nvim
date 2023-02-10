@@ -6,7 +6,7 @@ require("core.keymaps")
 
 require("lsp")
 require("plugins.cmp")
-require("plugins.custom")
+require("plugins.autocommands")
 require("plugins.lualine")
 require("plugins.nvim-tree")
 require('plugins.impatient')

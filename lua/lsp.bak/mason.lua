@@ -1,14 +1,29 @@
+-- require("mason").setup({
+--     ui = {
+--         icons = {
+--             -- package_installed = "✓",
+--             -- package_pending = "➜",
+--             -- package_uninstalled = "✗"
+--         }
+--     }
+-- })
+--
+-- require("mason-lspconfig").setup({
+--     -- 确保安装，根据需要填写
+--     ensure_installed = {
+--         "sumneko_lua", 'quick_lint_js', 'pyright', 'tsserver', 'vimls',
+--     },
+-- })
+
+
 local servers = {
-	"cssls",
-	"html",
-	"bashls",
-	"yamlls",
     "sumneko_lua",
     'quick_lint_js',
     'pyright',
     'tsserver',
     'vimls',
 }
+
 
 local settings = {
 	ui = {
@@ -38,8 +53,8 @@ local opts = {}
 
 for _, server in pairs(servers) do
 	opts = {
-		on_attach = require("lsp.handlers").on_attach,
-		capabilities = require("lsp.handlers").capabilities,
+		on_attach = require("lspconfig")[server].on_attach,
+		capabilities = require("lspconfig")[server].capabilities,
 	}
 
 	server = vim.split(server, "@")[1]

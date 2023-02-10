@@ -13,12 +13,12 @@ require("nvim-tree").setup({
         preserve_window_proportions = true,
         mappings = {
             list = {
-                { key = "P",            action = "parent_node" },
-                { key = "O",            action = "preview" },
-                { key = "ge",           action = "prev_diag_item" },
-                { key = "[[",           action = "prev_git_item" },
-                { key = "gE",           action = "next_diag_item" },
-                { key = "]]",           action = "next_git_item" },
+                { key = "P", action = "parent_node" },
+                { key = "O", action = "preview" },
+                { key = "ge", action = "prev_diag_item" },
+                { key = "[[", action = "prev_git_item" },
+                { key = "gE", action = "next_diag_item" },
+                { key = "]]", action = "next_git_item" },
             },
         },
     },
@@ -27,7 +27,7 @@ require("nvim-tree").setup({
         add_trailing = true,
         highlight_opened_files = "all",
         root_folder_label = function(path)
-            return ".../" .. vim.fn.fnamemodify(path, ":t")
+            return "\t" .. vim.fn.fnamemodify(path, ":t")
         end
 
     },
@@ -54,5 +54,19 @@ require("nvim-tree").setup({
         enable = false,
         show_on_dirs = true,
         show_on_open_dirs = true,
+    },
+    actions = {
+        open_file = {
+            quit_on_open = false,
+            resize_window = true,
+            window_picker = {
+                enable = true,
+                chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+                exclude = {
+                    filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+                    buftype = { "nofile", "terminal", "help" },
+                },
+            },
+        },
     },
 })
