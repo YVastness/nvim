@@ -89,26 +89,16 @@ _G.packer_plugins = {
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ReplaceWithRegister = {
+  ["alpha-nvim"] = {
     loaded = true,
-    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/ReplaceWithRegister",
-    url = "https://github.com/vim-scripts/ReplaceWithRegister"
-  },
-  ["argtextobj.vim"] = {
-    loaded = true,
-    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/argtextobj.vim",
-    url = "https://github.com/vim-scripts/argtextobj.vim"
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/alpha-nvim",
+    url = "https://github.com/goolord/alpha-nvim"
   },
   ["auto-save.nvim"] = {
     config = { "\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14auto-save\frequire\0" },
     loaded = true,
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/auto-save.nvim",
     url = "https://github.com/Pocco81/auto-save.nvim"
-  },
-  ["bufdelete.nvim"] = {
-    loaded = true,
-    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/bufdelete.nvim",
-    url = "https://github.com/famiu/bufdelete.nvim"
   },
   ["bufferline.nvim"] = {
     loaded = true,
@@ -145,20 +135,15 @@ _G.packer_plugins = {
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
-  ["cmp-spell"] = {
-    loaded = true,
-    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/cmp-spell",
-    url = "https://github.com/f3fora/cmp-spell"
-  },
   cmp_luasnip = {
     loaded = true,
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["fidget.nvim"] = {
+  ["darkplus.nvim"] = {
     loaded = true,
-    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/fidget.nvim",
-    url = "https://github.com/j-hui/fidget.nvim"
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/darkplus.nvim",
+    url = "https://github.com/lunarvim/darkplus.nvim"
   },
   ["friendly-snippets"] = {
     loaded = true,
@@ -169,12 +154,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
-  },
-  ["hop.nvim"] = {
-    config = { "\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\tkeys\28etovxqpdygfblzhckisuran\nsetup\bhop\frequire\0" },
-    loaded = true,
-    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/hop.nvim",
-    url = "https://github.com/phaazon/hop.nvim"
   },
   ["impatient.nvim"] = {
     loaded = true,
@@ -239,22 +218,22 @@ _G.packer_plugins = {
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
-    url = "https://github.com/nvim-tree/nvim-tree.lua"
+    url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
-  ["nvim-ts-rainbow"] = {
+  ["nvim-ts-context-commentstring"] = {
     loaded = true,
-    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
-    url = "https://github.com/p00f/nvim-ts-rainbow"
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
+    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
-    url = "https://github.com/nvim-tree/nvim-web-devicons"
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -266,20 +245,18 @@ _G.packer_plugins = {
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["project.nvim"] = {
+    loaded = true,
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/project.nvim",
+    url = "https://github.com/ahmedkhalf/project.nvim"
+  },
   ["telescope.nvim"] = {
     config = { "\27LJ\2\nL\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\flazygit\19load_extension\14telescope\frequire\0" },
     loaded = true,
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["todo-comments.nvim"] = {
-    config = { "\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0" },
-    loaded = true,
-    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
-    url = "https://github.com/folke/todo-comments.nvim"
-  },
   ["toggleterm.nvim"] = {
-    config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0" },
     loaded = true,
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
@@ -289,76 +266,34 @@ _G.packer_plugins = {
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
-  undotree = {
-    loaded = true,
-    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/undotree",
-    url = "https://github.com/mbbill/undotree"
-  },
   ["vim-autoread"] = {
     loaded = true,
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/vim-autoread",
     url = "https://github.com/djoshea/vim-autoread"
   },
-  ["vim-bookmarks"] = {
+  ["vim-bbye"] = {
     loaded = true,
-    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/vim-bookmarks",
-    url = "https://github.com/MattesGroeger/vim-bookmarks"
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/vim-bbye",
+    url = "https://github.com/moll/vim-bbye"
   },
-  ["vim-exchange"] = {
+  ["vim-illuminate"] = {
     loaded = true,
-    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/vim-exchange",
-    url = "https://github.com/tommcdo/vim-exchange"
-  },
-  ["vim-indent-object"] = {
-    loaded = true,
-    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/vim-indent-object",
-    url = "https://github.com/michaeljsmith/vim-indent-object"
-  },
-  ["vim-startify"] = {
-    loaded = true,
-    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/vim-startify",
-    url = "https://github.com/mhinz/vim-startify"
-  },
-  ["vim-surround"] = {
-    loaded = true,
-    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/vim-surround",
-    url = "https://github.com/tpope/vim-surround"
-  },
-  ["vim-textobj-entire"] = {
-    loaded = true,
-    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/vim-textobj-entire",
-    url = "https://github.com/kana/vim-textobj-entire"
-  },
-  ["vim-textobj-user"] = {
-    loaded = true,
-    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/vim-textobj-user",
-    url = "https://github.com/kana/vim-textobj-user"
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/vim-illuminate",
+    url = "https://github.com/RRethy/vim-illuminate"
   },
   ["vim-translator"] = {
     loaded = true,
     path = "/home/vastness/.local/share/nvim/site/pack/packer/start/vim-translator",
     url = "https://github.com/voldikss/vim-translator"
   },
-  ["vim-visual-multi"] = {
+  ["which-key.nvim"] = {
     loaded = true,
-    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
-    url = "https://github.com/mg979/vim-visual-multi"
+    path = "/home/vastness/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
-time([[Config for toggleterm.nvim]], false)
--- Config for: hop.nvim
-time([[Config for hop.nvim]], true)
-try_loadstring("\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\tkeys\28etovxqpdygfblzhckisuran\nsetup\bhop\frequire\0", "config", "hop.nvim")
-time([[Config for hop.nvim]], false)
--- Config for: todo-comments.nvim
-time([[Config for todo-comments.nvim]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
-time([[Config for todo-comments.nvim]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 try_loadstring("\27LJ\2\nL\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\flazygit\19load_extension\14telescope\frequire\0", "config", "telescope.nvim")

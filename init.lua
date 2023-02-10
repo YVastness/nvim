@@ -1,27 +1,24 @@
-require("core.plugins")
-require("core.options")
-require("core.keymaps")
-
--- 插件
-
-require("lsp")
-require("plugins.cmp")
-require("plugins.autocommands")
-require("plugins.lualine")
-require("plugins.nvim-tree")
-require('plugins.impatient')
-require("plugins.treesitter")
-require("plugins.comment")
-require("plugins.autopairs")
-require("plugins.bufferline")
-require("plugins.gitsigns")
-require("plugins.telescope")
-require("plugins.leap")
-require("plugins.autosave")
-require("plugins.lazygit")
-require("plugins.toggleterm")
-require("plugins.indent-blankline")
-require("plugins.vim-startify")
--- require("plugins.treesitter-textobjects")
-require("plugins.hop")
-require("plugins.fidget")
+require "user.options"
+require "user.keymaps"
+require "user.plugins"
+require "user.colorscheme"
+require "user.cmp"
+require "user.lsp"
+require "user.telescope"
+require "user.gitsigns"
+require "user.treesitter"
+require "user.autopairs"
+require "user.comment"
+require "user.lazygit"
+require "user.leap"
+require "user.autosave"
+require "user.nvim-tree"
+require "user.bufferline"
+require "user.lualine"
+require "user.toggleterm"
+require "user.project"
+require "user.impatient"
+require "user.indentline"
+require "user.alpha"
+require "user.whichkey"
+require "user.autocommands"
